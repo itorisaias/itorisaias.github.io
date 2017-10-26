@@ -25,7 +25,7 @@ github_username:  itorisaias
 markdown: kramdown
 # permalin: /:categories/:year/:moth/:day/:title
 permalink: /post/:title
-theme: minima
+theme: jekyll-theme-time-machine
 plugins:
   - jekyll-feed
 
