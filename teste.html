@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>?</title>
+    <style>
+      body {
+        background-color: red;
+        text-align: center;
+      }
+
+      .btn {
+        padding: 5px;
+        border: 1px solid white;
+        background-color: red;
+        border-radius: 5px;
+        color: white;
+      }
+
+      #btn-no {
+        margin: 20px;
+      }
+    </style>
+  </head>
+  <body>
+    <h1>Cuzinho hoje ?</h1>
+
+    <button id="btn-yes" class="btn">Sim</button>
+    <button id="btn-no" class="btn">Não</button>
+  </body>
+
+  <script>
+    document.getElementById('btn-no').addEventListener('mouseenter', () => {
+      document.getElementById('btn-no').style.position = 'absolute'
+      document.getElementById('btn-no').style.bottom = `${Math.floor(Math.random() * window.innerHeight)}px`
+      document.getElementById('btn-no').style.left = `${Math.floor(Math.random() * window.innerWidth)}px`
+    })
+
+    document.getElementById('btn-yes').addEventListener('click', () => {
+      window.location = 'https://www.youtube.com/watch?v=orWnzqBA63w'
+    })
+  </script>
+</html>
