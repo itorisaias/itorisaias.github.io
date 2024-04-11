@@ -11,12 +11,6 @@ jobs:
     steps:
       - name: Checkout
         uses: actions/checkout@v4
-      - name: Setup NodeJS
-        uses: actions/setup-node@v4
-        with:
-          node-version: '18.18.2'
-      - run: npm install
-      - run: npm run build
       - name: Docker meta
         id: meta
         uses: docker/metadata-action@v5
@@ -47,19 +41,14 @@ jobs:
           push: ${{ github.event_name != 'pull_request' }}
           tags: ${{ steps.meta.outputs.tags }}
           labels: ${{ steps.meta.outputs.labels }}
-      # -
-      #   name: Install Helm
+      # - name: Install Helm
       #   uses: azure/setup-helm@v4.1.0
-      # -
-      #   name: Helm Install api
+      # - name: Helm Install api
       #   run: |
-      #     helm template \
-      #       backend02 backend/projeto_backend_02/k8s \
-      #       --output-dir=backend/projeto_backend_02/k8s/debug --debug
-      # -
-      #   name: Install kubectl
+      #     helm upgrade --install itorisaias --set image.tag=${{ steps.meta.outputs.tags[1] }} app
+      # - name: Install kubectl
       #   uses: actions-hub/kubectl@master
       #   env:
       #     KUBE_CONFIG: ${{ secrets.KUBE_CONFIG }}
       #   with:
-      #     args: apply -f backend/projeto_backend_02/k8s/debug/api/templates/
+      #     args: apply -f app/debug/app/templates/
