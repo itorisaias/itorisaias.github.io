@@ -1,4 +1,4 @@
-# Default values for app.
+# Default values for k8s.
 # This is a YAML-formatted file.
 # Declare variables to be passed into your templates.
 
@@ -7,7 +7,7 @@ replicaCount: 1
 image:
   repository: itorisaias/itorisaias.github.io
   pullPolicy: Always
-  tag: main
+  tag: ""
 
 imagePullSecrets: []
 nameOverride: ""
@@ -40,7 +40,7 @@ securityContext: {}
 
 service:
   type: ClusterIP
-  port: 3000
+  port: 80
 
 ingress:
   enabled: true
